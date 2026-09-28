@@ -2,7 +2,7 @@
 
 A production-style banking backend that simulates real-world financial transaction workflows. Built with **Node.js, Express.js, and MongoDB**, it derives account balances from ledger entries and prevents duplicate transactions through idempotency validation.
 
-**Live API:** [YOUR-APP.onrender.com](https://YOUR-APP.onrender.com) *(hosted on a free tier, so the first request may take ~30 seconds to wake up)*
+**Live API:** [LIVE](https://bank-transaction-ledger-system-1.onrender.com/) *(hosted on a free tier, so the first request may take ~30 seconds to wake up)*
 
 ## Features
 
