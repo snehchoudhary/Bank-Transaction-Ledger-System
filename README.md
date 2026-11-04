@@ -24,17 +24,35 @@ A production-style banking backend that simulates real-world financial transacti
 | Auth & Security | JWT, bcrypt, cookie-parser, dotenv |
 | Communication & Testing | Nodemailer, Postman |
 
-## Architecture
 
-```text
-Client / Postman
-       │
-       ▼
-Express Server ── Routes ── Auth Middleware ── Controllers ── Models
-       │
-       ▼
-MongoDB Atlas: Users | Accounts | Transactions | Ledgers | Blacklist
+## System Architecture
+
+The project follows a layered monolithic REST API architecture.
+
+```mermaid
+flowchart TD
+    A["Client / Postman"] --> B["Express REST API"]
+    B --> C["Routes"]
+    C --> D["Authentication Middleware"]
+    D --> E["Controllers"]
+    E --> F["Mongoose Models"]
+    F --> G[("MongoDB Atlas")]
+
+    C --> H["Auth Routes"]
+    C --> I["Account Routes"]
+    C --> J["Transaction Routes"]
+
+    J --> K["Input Validation"]
+    K --> L["Idempotency Check"]
+    L --> M["MongoDB Transaction"]
+    M --> N["Balance Validation"]
+    N --> O["Debit Ledger Entry"]
+    N --> P["Credit Ledger Entry"]
+    O --> Q["Transaction Completed"]
+    P --> Q
+    Q --> R["Email Notification"]
 ```
+
 
 ### Transaction Flow
 
