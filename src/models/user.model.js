@@ -27,11 +27,11 @@ const userSchema = mongoose.Schema({
     systemUser: {
         type :Boolean,
         default: false,
-        immuatable: true,
+        immutable: true,
         select: false
     }
 }, {
-    timestamp: true
+    timestamps: true
 })
 
 userSchema.pre("save", async function(){
